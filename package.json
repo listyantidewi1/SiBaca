@@ -5,12 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --env-file=.env --watch server/app.js"
+    "dev": "node --env-file=.env --watch server/app.js",
+    "contoh": "node --env-file=.env database/isi-contoh.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "express": "^5.3.0",
     "mysql2": "^3.24.6"
   }

@@ -1,0 +1,46 @@
+// [judul, penulis, kategori, tahun, jumlah eksemplar]
+export const BUKU = [
+  ['Laskar Pelangi', 'Andrea Hirata', 'Novel', 2005, 3],
+  ['Sang Pemimpi', 'Andrea Hirata', 'Novel', 2006, 2],
+  ['Edensor', 'Andrea Hirata', 'Novel', 2007, 1],
+  ['Bumi', 'Tere Liye', 'Novel', 2014, 3],
+  ['Bulan', 'Tere Liye', 'Novel', 2015, 2],
+  ['Matahari', 'Tere Liye', 'Novel', 2016, 2],
+  ['Hujan', 'Tere Liye', 'Novel', 2016, 2],
+  ['Pulang', 'Leila S. Chudori', 'Novel', 2012, 1],
+  ['Bumi Manusia', 'Pramoedya Ananta Toer', 'Novel', 1980, 2],
+  ['Anak Semua Bangsa', 'Pramoedya Ananta Toer', 'Novel', 1980, 1],
+  ['Ronggeng Dukuh Paruk', 'Ahmad Tohari', 'Novel', 1982, 1],
+  ['Negeri 5 Menara', 'Ahmad Fuadi', 'Novel', 2009, 2],
+  ['Ayat-Ayat Cinta', 'Habiburrahman El Shirazy', 'Novel', 2004, 1],
+  ['Dilan 1990', 'Pidi Baiq', 'Novel', 2014, 2],
+  ['Cantik Itu Luka', 'Eka Kurniawan', 'Novel', 2002, 1],
+  ['Perahu Kertas', 'Dee Lestari', 'Novel', 2009, 2],
+  ['Supernova: Ksatria, Puteri, dan Bintang Jatuh', 'Dee Lestari', 'Novel', 2001, 1],
+  ['Si Kancil dan Kumpulan Dongeng Nusantara', 'Tim Penulis Sekolah', 'Cerita Anak', 2019, 2],
+  ['Filosofi Teras', 'Henry Manampiring', 'Pengembangan Diri', 2018, 2],
+  ['Atomic Habits (Edisi Indonesia)', 'James Clear', 'Pengembangan Diri', 2019, 2],
+  ['Sapiens: Riwayat Singkat Umat Manusia', 'Yuval Noah Harari', 'Sejarah', 2017, 1],
+  ['Sejarah Indonesia Modern', 'M.C. Ricklefs', 'Sejarah', 2008, 1],
+  ['Dasar-Dasar Pemrograman Python', 'Tim Informatika', 'Komputer', 2023, 3],
+  ['Belajar SQL untuk Pemula', 'Tim Informatika', 'Komputer', 2022, 2],
+  ['Membuat Website dengan HTML dan CSS', 'Tim Informatika', 'Komputer', 2021, 2],
+  ['JavaScript dari Nol', 'Tim Informatika', 'Komputer', 2024, 2],
+  ['Algoritma dan Struktur Data', 'Tim Informatika', 'Komputer', 2020, 1],
+  ['100% Paham Matematika SMA', 'Tim Guru Matematika', 'Pelajaran', 2024, 2],
+  ['Rumus_Kilat Fisika SMA', 'Tim Guru Fisika', 'Pelajaran', 2023, 1],
+  ['Kimia Itu Mudah', 'Tim Guru Kimia', 'Pelajaran', 2022, 2],
+  ['Biologi untuk SMA Kelas X', 'Tim Guru Biologi', 'Pelajaran', 2023, 3],
+  ['Atlas Indonesia dan Dunia', 'Tim Kartografi', 'Referensi', 2021, 1],
+  ['Kamus Besar Bahasa Indonesia', 'Badan Bahasa', 'Referensi', 2016, 2],
+  ['Kosmos', 'Carl Sagan', 'Sains', 1980, 1],
+  ['Sejarah Singkat Waktu', 'Stephen Hawking', 'Sains', 1988, 1]
+]
+// Seri bernomor supaya koleksinya mendekati perpustakaan sungguhan: [judul, penulis, kategori, banyak jilid]
+export const SERI = [
+  ['Ensiklopedia Sains Jilid', 'Tim Ensiklopedia', 'Referensi', 120],
+  ['Ensiklopedia Sejarah Dunia Jilid', 'Tim Ensiklopedia', 'Referensi', 80],
+  ['Kumpulan Cerpen Siswa Volume', 'Ekstrakurikuler Jurnalistik', 'Cerita Pendek', 60],
+  ['Majalah Sekolah Edisi', 'OSIS', 'Majalah', 140],
+  ['Modul Praktikum Jilid', 'Tim Guru Produktif', 'Pelajaran', 90]
+]
