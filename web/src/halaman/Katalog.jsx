@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api.js'
+import TambahBuku from './TambahBuku.jsx'
 
 export default function Katalog({ pengguna }) {
   const [q, setQ] = useState('')
@@ -73,6 +74,7 @@ export default function Katalog({ pengguna }) {
       {status === 'siap' && buku.length === 20 && (
         <p className="redup tengah">Menampilkan 20 buku pertama. Ketik kata kunci untuk mempersempit.</p>
       )}
+      {pengguna.peran === 'petugas' && <TambahBuku setelahSimpan={() => setMuatUlang((n) => n + 1)} />}
     </>
   )
 }

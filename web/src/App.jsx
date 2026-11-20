@@ -5,6 +5,8 @@ import Masuk from './halaman/Masuk.jsx'
 import Daftar from './halaman/Daftar.jsx'
 import Katalog from './halaman/Katalog.jsx'
 import Pinjaman from './halaman/Pinjaman.jsx'
+import Petugas from './halaman/Petugas.jsx'
+import Anggota from './halaman/Anggota.jsx'
 
 export default function App() {
   const [pengguna, setPengguna] = useState(undefined)
@@ -29,13 +31,16 @@ export default function App() {
     )
   }
 
+  const petugas = pengguna.peran === 'petugas'
   return (
     <>
       <header>
         <b className="merek">SiBaca</b>
         <nav>
           <NavLink to="/">Katalog</NavLink>
-          <NavLink to="/pinjaman">Pinjamanku</NavLink>
+          {!petugas && <NavLink to="/pinjaman">Pinjamanku</NavLink>}
+          {petugas && <NavLink to="/petugas">Peminjaman</NavLink>}
+          {petugas && <NavLink to="/anggota">Anggota</NavLink>}
         </nav>
         <button className="tipis" onClick={keluar}>Keluar</button>
       </header>
@@ -43,6 +48,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Katalog pengguna={pengguna} />} />
           <Route path="/pinjaman" element={<Pinjaman />} />
+          {petugas && <Route path="/petugas" element={<Petugas />} />}
+          {petugas && <Route path="/anggota" element={<Anggota />} />}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>

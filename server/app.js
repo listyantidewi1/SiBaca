@@ -3,6 +3,7 @@ import cookieSession from 'cookie-session'
 import { auth } from './auth.js'
 import { buku } from './buku.js'
 import { pinjam } from './pinjam.js'
+import { petugas } from './petugas.js'
 
 const app = express()
 app.use(express.json())
@@ -17,6 +18,7 @@ app.use(cookieSession({
 app.use('/api/auth', auth)
 app.use('/api/buku', buku)
 app.use('/api/pinjam', pinjam)
+app.use('/api/petugas', petugas)
 
 app.use((err, req, res, next) => {
   console.error(err)
