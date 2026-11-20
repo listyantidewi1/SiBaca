@@ -1,9 +1,10 @@
 import { Router } from 'express'
 import { db } from './db.js'
+import { perluLogin } from './auth.js'
 
 export const buku = Router()
 
-buku.get('/', async (req, res) => {
+buku.get('/', perluLogin, async (req, res) => {
   const q = String(req.query.q || '')
   const [rows] = await db.query(
     `SELECT b.id, b.judul, b.penulis, b.kategori, b.tahun,
