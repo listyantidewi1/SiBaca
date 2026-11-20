@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "node --env-file=.env --watch server/app.js",
     "contoh": "node --env-file=.env database/isi-contoh.js",
-    "start": "node --env-file=.env server/app.js"
+    "start": "node --env-file=.env server/app.js",
+    "test": "node --test"
   },
   "keywords": [],
   "author": "",
