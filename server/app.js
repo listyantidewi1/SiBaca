@@ -1,5 +1,6 @@
 import express from 'express'
 import cookieSession from 'cookie-session'
+import path from 'node:path'
 import { auth } from './auth.js'
 import { buku } from './buku.js'
 import { pinjam } from './pinjam.js'
@@ -19,6 +20,12 @@ app.use('/api/auth', auth)
 app.use('/api/buku', buku)
 app.use('/api/pinjam', pinjam)
 app.use('/api/petugas', petugas)
+app.use('/api', (req, res) => res.status(404).json({ pesan: 'Alamat API tidak ada' }))
+
+// Hasil build React disajikan oleh server yang sama, tanpa internet.
+const dist = path.resolve('web/dist')
+app.use(express.static(dist))
+app.get('/{*semua}', (req, res) => res.sendFile(path.join(dist, 'index.html')))
 
 app.use((err, req, res, next) => {
   console.error(err)
