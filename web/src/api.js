@@ -10,3 +10,8 @@ export async function api(alamat, isi) {
   if (!res.ok) throw new Error(data.pesan || 'Terjadi kesalahan')
   return data
 }
+
+export function tanggal(teks) {
+  return new Date(teks.replace(' ', 'T')).toLocaleDateString('id-ID',
+    { day: 'numeric', month: 'long', year: 'numeric' })
+}

@@ -8,6 +8,8 @@ export default function Katalog({ pengguna }) {
   const [daftarKategori, setDaftarKategori] = useState([])
   const [buku, setBuku] = useState([])
   const [status, setStatus] = useState('memuat')
+  const [pesan, setPesan] = useState('')
+  const [muatUlang, setMuatUlang] = useState(0)
 
   useEffect(() => {
     api('/buku/kategori').then(setDaftarKategori).catch(() => {})
@@ -23,7 +25,17 @@ export default function Katalog({ pengguna }) {
         .catch(() => { if (!batal) setStatus('gagal') })
     }, 300)
     return () => { batal = true; clearTimeout(jeda) }
-  }, [q, kategori, tersedia])
+  }, [q, kategori, tersedia, muatUlang])
+
+  async function pinjam(b) {
+    try {
+      const hasil = await api('/pinjam', { buku_id: b.id })
+      setPesan(`${b.judul}: ${hasil.pesan}`)
+    } catch (err) {
+      setPesan(`${b.judul}: ${err.message}`)
+    }
+    setMuatUlang((n) => n + 1)
+  }
 
   return (
     <>
@@ -38,6 +50,7 @@ export default function Katalog({ pengguna }) {
           Hanya yang tersedia
         </label>
       </div>
+      {pesan && <p className="info" onClick={() => setPesan('')}>{pesan}</p>}
       {status === 'memuat' && <p className="tengah">Memuat…</p>}
       {status === 'gagal' && <p className="galat">Server tidak bisa dihubungi. Coba lagi sebentar.</p>}
       {status === 'siap' && buku.length === 0 && <p className="tengah">Tidak ada buku yang cocok.</p>}
@@ -51,6 +64,9 @@ export default function Katalog({ pengguna }) {
                 {b.tersedia > 0 ? `${b.tersedia} dari ${b.jumlah} tersedia` : 'Sedang dipinjam semua'}
               </span>
             </div>
+            {pengguna.peran === 'anggota' && (
+              <button disabled={b.tersedia === 0} onClick={() => pinjam(b)}>Pinjam</button>
+            )}
           </li>
         ))}
       </ul>

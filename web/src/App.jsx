@@ -4,6 +4,7 @@ import { api } from './api.js'
 import Masuk from './halaman/Masuk.jsx'
 import Daftar from './halaman/Daftar.jsx'
 import Katalog from './halaman/Katalog.jsx'
+import Pinjaman from './halaman/Pinjaman.jsx'
 
 export default function App() {
   const [pengguna, setPengguna] = useState(undefined)
@@ -34,12 +35,14 @@ export default function App() {
         <b className="merek">SiBaca</b>
         <nav>
           <NavLink to="/">Katalog</NavLink>
+          <NavLink to="/pinjaman">Pinjamanku</NavLink>
         </nav>
         <button className="tipis" onClick={keluar}>Keluar</button>
       </header>
       <main>
         <Routes>
           <Route path="/" element={<Katalog pengguna={pengguna} />} />
+          <Route path="/pinjaman" element={<Pinjaman />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
